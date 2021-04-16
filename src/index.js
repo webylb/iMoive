@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import request from '@utils/request'
+
+React.$request = request
 
 ReactDOM.render(
   <React.StrictMode>
