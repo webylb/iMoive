@@ -16,6 +16,7 @@ module.exports = override(
 		'@components': path.resolve(__dirname, './src/components'),
 		'@pages': path.resolve(__dirname, './src/pages'),
 		'@utils': path.resolve(__dirname, './src/utils'),
-		'@containers': path.resolve(__dirname, './src/containers')
+		'@containers': path.resolve(__dirname, './src/containers'),
+		'@api': path.resolve(__dirname, './src/api')
 	})
 )

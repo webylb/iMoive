@@ -11,8 +11,8 @@ const Method = {
   PATCH:'PATCH'
 }
 
-const request = (url,method = Method.GET, params = {}, config = {}) => {
-  const data = (method === 'GET') ? 'params' : 'data'
+const request = (url, method = Method.GET, params = {}, config = {}) => {
+  const data = method === 'GET' ? 'params' : 'data'
   let headers = {
     'X-Requested-With': 'XMLHttpRequest',
     'Content-Type': 'application/json'
@@ -31,11 +31,12 @@ const request = (url,method = Method.GET, params = {}, config = {}) => {
       [data]: params,
       headers
     }).then(response => {
+      console.log('response----------', response)
       const { data, statusCode } = response
-      if(statusCode && statusCode !== 200) message.error('接口调用异常, 请联系黄达')
+      if(statusCode && statusCode !== 200) message.error('接口调用异常, 请联系管理员黄达')
       resolve(data)
     }).catch(error => {
-      console.dir(error);
+      console.dir('error----------', error);
       message.error(typeof error.response.data === 'string' ? error.response.data : JSON.stringify(error.response.data));
       reject(error);
     })
